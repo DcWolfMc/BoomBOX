@@ -124,4 +124,4 @@ const playlists = [
     ],
   },
 ];
-export default playlist;
+export default playlists;

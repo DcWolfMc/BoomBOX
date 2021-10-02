@@ -18,7 +18,7 @@ function PlaylistsDetails(){
     return(
         <div>
             <div>
-                <img src={playlist.capa} width="100%" height="100%"/>
+                <img src={playlist.capa} width="20%" height="30%"/>
                 <h1>{playlist.nome}</h1>
                 <h2>{playlist.artista}</h2>
             </div>
@@ -28,3 +28,5 @@ function PlaylistsDetails(){
         </div>
     )
 }
+
+export default PlaylistsDetails;
