@@ -1,4 +1,16 @@
 const Cadastro = () =>{
+
+ /*const [nome, setNome]
+  * const [Email, setEmail]
+  * const [EmailConf, setEmailConf]
+  * const [password, setPassword]
+  * const [nickname, setNickname]
+  * const [dia, setDia]
+  * const [mes, setMes]
+  * const [ano, setAno]
+  * const[gender,setGender]
+  */
+
     return(
     <div className="container fonte" className="estilofaq">
     <form className="mx-auto">

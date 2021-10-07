@@ -22,12 +22,12 @@ import {BrowserRouter as Router, Switch ,Route} from "react-router-dom";
          <FAQ/>
       </Route>
 
-      <Route path="/Playlists">
-         <Playlists/>
-      </Route>
-      
       <Route path="/Playlists/:id">
          <PlaylistsDetails/>
+      </Route>
+
+      <Route path="/Playlists">
+         <Playlists/>
       </Route>
    
       <Route path="/Cadastro">
