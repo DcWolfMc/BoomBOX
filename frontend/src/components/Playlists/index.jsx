@@ -3,16 +3,16 @@ import playlists from "../../assets/js/dadosPlaylists.js";
 const PlaylistsExhibit = () => {
     let listaUnitaria = playlists.map((p) =>{
         return(
-            <ul className="col-md-4">
-                <li className="bordaA3"><Link to={`/Playlists/${p.id}`}><img src={p.capa} width="20%" height="30%"/></Link></li>
-                <li className="bordaA3"><Link to={`/Playlists/${p.id}`}><h3>{p.nome}</h3></Link></li>
-                <li className="bordaA3"><h4>{p.artista}</h4></li>
+            <ul className="playlist-card col-md-3">
+                <li className="playlist-card-image "><Link to={`/Playlists/${p.id}`}><img src={p.capa} width="100%" height="100%"/></Link></li>
+                <li className="playlist-card-name "><Link to={`/Playlists/${p.id}`} className="playlist-card-name"><h3>{p.nome}</h3></Link></li>
+                <li className="playlist-card-artist "><h5>{p.artista}</h5></li>
             </ul>
 
         )
     })
     return(
-    <div className="col-md-12">
+    <div className="row row-cols-4">
         {listaUnitaria}
     </div>);
 }

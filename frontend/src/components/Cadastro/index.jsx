@@ -1,41 +1,57 @@
+import { useState } from "react";
+import usuario from "../../assets/js/dadosCadastro";
+
 const Cadastro = () =>{
 
- /*const [nome, setNome]
-  * const [Email, setEmail]
-  * const [EmailConf, setEmailConf]
-  * const [password, setPassword]
-  * const [nickname, setNickname]
-  * const [dia, setDia]
-  * const [mes, setMes]
-  * const [ano, setAno]
-  * const[gender,setGender]
-  */
+const [email , setEmail] = useState('');
+const [password , setPassword] = useState('');
+const [sex , setSex] = useState('');
+const [name , setName] = useState('');
+const [emailconfirm , setEmailconfirm] = useState('');
+const [error , setError] = useState({emaild: ''});
+ 
+  function handleSubmit(e){
+    e.preventDefault();
+    if(email == emailconfirm){
+      usuario.push({
+        email: email,
+        password: password,
+        sex: sex,
+        nome: name
+      });
+      console.log(usuario);
+    }else{
+      setError({emaild:'Os e-mails não conferem'})
+    }
+  }
 
     return(
     <div className="container fonte" className="estilofaq">
-    <form className="mx-auto">
+    <form className="mx-auto" onSubmit={(e) => handleSubmit(e)}>
       <div className="mb-3">
-        <label for="Email" className="form-label bordaA3">Email address</label>
-        <input type="email" className="form-control bordaA3" id="Email" placeholder="Enter your email"
-          aria-describedby="Email"/>
-        <label for="Email" className="form-label bordaA3">Confirm Email</label>
-        <input type="email" className="form-control bordaA3" id="Email" placeholder="Enter your email again"
-          aria-describedby="email"/>
+        <label for="Email" className="form-label fonte">Email address</label>
+        <input type="email" className="form-control fonte" placeholder="Enter your email"
+           value={email} onChange={(e) => setEmail(e.target.value)}/>
+        <label for="Email" className="form-label fonte">Confirm Email</label>
+        <input type="email" className="form-control fonte" placeholder="Enter your email again"
+           value={emailconfirm} onChange={(e) => setEmailconfirm(e.target.value)}/>
+           {error.emaild && (<div className="alert alert-danger" role="alert">{error.emaild}</div>)}
         <div id="emailHelp" className="form-text bordaA3">We'll never share your email with anyone else.</div>
       </div>
       <div className="mb-3">
-        <label for="Email" className="form-label bordaA3">Password</label>
-        <input type="password" className="form-control bordaA3" placeholder="Create your password" id="Password"/>
+        <label for="password" className="form-label fonte">Password</label>
+        <input type="password" className="form-control fonte" placeholder="Create your password" id="Password"
+        value={password} onChange={(e) => setPassword(e.target.value)}/>
       </div>
       <div className="mb-3">
-        <label for="Email" className="form-label bordaA3">What should we call you?</label>
-        <input type="text" className="form-control bordaA3" placeholder="Enter a profile name" id="Nickname"/>
+        <label for="text" className="form-label fonte">What should we call you?</label>
+        <input type="text" className="form-control fonte" placeholder="Enter a profile name" value={name} onChange={(e) => setName(e.target.value)}/>
         <div id="nicknameHelp" className="form-text bordaA3">This appear on your profile.</div>
       </div>
       <div className="row g-3">
         <div className="col-md-6">
           <div className="form-floating">
-            <select className="form-select" id="floatingSelectGrid" aria-label="Floating label select example">
+            <select className="form-select fonte" id="floatingSelectGrid" aria-label="Floating label select example">
               <option selected>Month</option>
               <option value="1">January</option>
               <option value="2">February</option>
@@ -53,17 +69,17 @@ const Cadastro = () =>{
           </div>
         </div>
         <div className="col-md-3">
-          <input type="Day" className="form-control bordaA3" id="floatingInputGrid" placeholder="DD"/>
+          <input type="Day" className="form-control fonte" id="floatingInputGrid" placeholder="DD"/>
         </div>
         <div className="col-md-3">
-          <input type="Year" className="form-control bordaA3" id="floatingInputGrid" placeholder="YEAR"/>
+          <input type="Year" className="form-control fonte" id="floatingInputGrid" placeholder="YEAR"/>
         </div>
       </div>
       <label for="Email" className="form-label bordaA3">What's your gender?</label>
       <div className="row g-3">
         <div className="col-md-4">
           <div className="form-check">
-            <input className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1"/>
+            <input className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" checked={sex == 'Male'} onClick={(e) => setSex('Male')}/>
             <label className="form-check-label" for="flexRadio">
               Male
             </label>
@@ -71,7 +87,7 @@ const Cadastro = () =>{
         </div>
         <div className="col-md-4">
           <div className="form-check">
-            <input className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked/>
+            <input className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked={sex == 'Female'} onClick={(e) => setSex('Female')}/>
             <label className="form-check-label" for="flexRadio">
               Female
             </label>
@@ -79,7 +95,7 @@ const Cadastro = () =>{
         </div>
         <div className="col-md-4">
           <div className="form-check">
-            <input className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1"/>
+            <input className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" checked={sex == 'Programmer'} onClick={(e) => setSex('Programmer')}/>
             <label className="form-check-label" for="flexRadio">
               Programmer
             </label>
@@ -91,11 +107,12 @@ const Cadastro = () =>{
           <label className="form-check-label bordaA3" for="exampleCheck1">Share my registration data with Spotify's content
             providers for marketing purposes.</label>
         </div>
-        <button type="button" className="button bordaA3" style={{color: 'black'}}>Sign up</button>
+        <button type="submit" className="button bordaA3" style={{color: 'black'}}>Sign up</button>
         </div>
     </form>
     </div>
     );
 }
+
 
 export default Cadastro;

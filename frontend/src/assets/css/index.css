@@ -85,6 +85,55 @@
     line-height: inherit;
     letter-spacing: 0;
 }
+.playlist-card {
+    
+    border: 1px solid #222326;
+}
+.playlist-card-image {
+    object-fit: cover;
+    list-style-type: none;
+}
+.playlist-card-name {
+    display: flex;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: inherit;
+    letter-spacing: 0;
+    list-style-type: none;
+    color: aliceblue;
+}
+
+.playlist-card-artist {
+    display: flex;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: inherit;
+    letter-spacing: 0;
+    list-style-type: none;
+    color: aliceblue;
+}
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color:#444;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: 0.25rem;
+}
+.card-img{
+    border: 1px solid rgba(0,0,0,.125);
+    background-clip: border-box;
+    object-fit: cover;
+    display: flex;
+    align-self:center;
+    max-width: 35%;
+    max-height: 35%;
+}
 
 .separator {
     background: white;
@@ -99,6 +148,12 @@
     text-decoration: none;
     font-weight: 700;
     font-size: 16px;
+}
+.bordaA4 {
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+
 }
 
 a:link,
@@ -207,6 +262,11 @@ body {
     background-color: #222326;
     display: inline-flex;
     justify-content: center;
+}
+.redes-sociais-link-icons{
+    margin: 10px;
+    font-size: 20px;
+    
 }
 
 .accordion {

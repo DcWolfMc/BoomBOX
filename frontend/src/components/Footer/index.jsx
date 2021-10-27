@@ -16,9 +16,7 @@ const Footer = () => {
                         <dl className="footer-content col-md-2">
                             <dt>EMPRESA</dt>
                             <dd><a href="#" className="bordaA3">Sobre</a></dd>
-                            <dd>
-                                <a href="#" className="bordaA3">Trabalhe conosco</a>
-                            </dd>
+                            <dd><a href="#" className="bordaA3">Trabalhe conosco</a></dd>
                         </dl>
                         <dl className="footer-content col-md-2">
                             <dt>COMUNIDADE</dt>
@@ -32,9 +30,15 @@ const Footer = () => {
                             <dd><a href="#" className="bordaA3">Cadastro</a></dd>
                         </dl>
                         <div className="redes-sociais footer-content col-md-3">
-                            <a className="redes-sociais-link bordaA3" href="#">YT</a>
-                            <a href="#" className="bordaA3"> IG </a>
-                            <a href="#" className="bordaA3">FB </a>
+                            <a className="redes-sociais-link-icons bordaA3" href="#">
+                                <i className="bi bi-facebook"></i>
+                            </a>
+                            <a href="#" className="redes-sociais-link-icons bordaA3">
+                                <i className="bi bi-youtube"></i>
+                            </a>
+                            <a href="#" className="redes-sociais-link-icons bordaA3">
+                                <i className="bi bi-instagram"></i>
+                            </a>
                             <h3>{datatime}</h3>
                         </div>
                     </div>
