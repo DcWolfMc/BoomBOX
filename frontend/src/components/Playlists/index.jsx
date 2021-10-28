@@ -1,6 +1,18 @@
 import { Link } from "react-router-dom";
-import playlists from "../../assets/js/dadosPlaylists.js";
+//import playlists from "../../assets/js/dadosPlaylists.js";
+import axios from "axios";
+import{useEffect, useState} from "react";
+
 const PlaylistsExhibit = () => {
+    const db = "http://localhost:3001/playlists" 
+    const [playlists, setPlaylists] = useState([]);
+
+    useEffect(() => {
+        axios.get(db).then( (response) => setPlaylists(response.data));
+    }, [])
+
+
+
     let listaUnitaria = playlists.map((p) =>{
         return(
             <ul className="playlist-card col-md-3">

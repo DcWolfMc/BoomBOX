@@ -1,11 +1,25 @@
 import { useParams } from "react-router";
-import playlists from "../../assets/js/dadosPlaylists";
+//import playlists from "../../assets/js/dadosPlaylists";
+import axios from "axios";
+import{useEffect, useState} from "react";
+    
+
 
 function PlaylistsDetails() {
   const { id } = useParams();
 
-  const playlist = playlists.find((p) => p.id == id);
-  const musics = playlist.musicas.map((m) => {
+  const db = `http://localhost:3001/playlists/${id}`
+  const [playlist, setPlaylist] = useState({});
+
+  useEffect(() => {
+      axios.get(db).then( (response) => {
+        console.log(response.data);
+        setPlaylist(response.data);
+
+      });
+  }, [])
+
+  const musics = playlist.musicas? playlist.musicas.map((m) => {
     return (
       <div>
         <h3 className="bordaA3">{m.nome}</h3>
@@ -14,7 +28,8 @@ function PlaylistsDetails() {
         </audio>
       </div>
     );
-  });
+  }):"";
+  console.log(playlist.musicas) 
   return (
     <div>
       <div className="card mb-3" max-width= "540px">
@@ -25,7 +40,7 @@ function PlaylistsDetails() {
         <div className="col-md-8">
           <div className="card-body">
             <h1 className=" card-title bordaA4 ">{playlist.nome}</h1>
-            <h3 className=" bordaA4 ">{playlist.artista}</h3>
+            <h3 className=" bordaA4 ">{playlist.artista} </h3>
           </div>
         </div>
       </div>
