@@ -20,8 +20,8 @@ const PlaylistsExhibit = () => {
                 <li className="playlist-card-name "><Link to={`/Playlists/${p.id}`} className="playlist-card-name"><h3>{p.nome}</h3></Link></li>
                 <li className="playlist-card-artist "><h5>{p.artista}</h5></li>
             </ul>
-
         )
+         
     })
     return(
     <div className="row row-cols-4">

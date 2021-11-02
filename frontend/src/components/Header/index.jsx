@@ -1,6 +1,39 @@
 import logo from '../../assets/img/Spotify-Logo.jpg';
 import { Link } from 'react-router-dom';
-const Header = () => {
+import { useEffect, useState } from 'react';
+import Login_logout from '../Header/Login_Logout';
+const Header = (props) => {
+    const deslogar = ()=>{
+        localStorage.removeItem("usuarioLogado");
+        {props.setIsOnline(false)};
+    }
+    // usuário logado
+    
+    let login_logout = () =>{
+        console.log("Identificando função")
+        if(props.isOnline == true){
+            console.log("IsOnline é verdadeiro")
+            console.log("usuário logado:" + props.usuarioLogado.nome)
+            return(
+            <>
+            <li className="unitlist" ><Link to="/Perfil" className="bordaA3">{props.usuarioLogado.nome}</Link></li>
+            <li className="unitlist"><Link onClick={deslogar} className="bordaA3">Logout</Link></li>
+            </>)
+        }else{
+            console.log("IsOnline é falso")
+            return(
+            <>
+            <li className="unitlist" ><Link to="/Cadastro" className="bordaA3">Inscreva-se</Link></li>
+            <li className="unitlist"><Link to="/Login" className="bordaA3">Login</Link></li>
+            </>)
+        }
+    }
+
+    // Tentando descobrir como eu faço para o sistema perceber a chamada do dados salvos e garantindo que ele consiga
+    // não so achar mas garantir que , caso não ache, ele não de erro.
+   
+
+
     return(
         <header role="banner" className="cabecario">
             <div className="divisaodiv">
@@ -9,11 +42,9 @@ const Header = () => {
                     <ul className="ulstyle">
                         <li className="unitlist" style={{}}><Link to="/FAQ" className="bordaA3">Suporte</Link></li>
                         <li role="separator" className="separator" ></li>
-                        <li className="unitlist" ><Link to="/Cadastro" className="bordaA3">Inscreva-se</Link></li>
                         <li className="unitlist" ><Link to="/Playlists" className="bordaA3">Free Playlists</Link></li>
-                        <li className="unitlist" ><a
-                                href="https://accounts.spotify.com/login/?continue=https%3A%2F%2Fopen.spotify.com%2F%3Fl2l%3D1"
-                                className="bordaA3">Entrar</a></li>
+                        {login_logout()}
+                        <li className="unitlist" >  </li>
                     </ul>
                 </nav>
             </div>

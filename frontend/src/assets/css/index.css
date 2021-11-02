@@ -155,6 +155,10 @@
     font-weight: 700;
 
 }
+.btn-usuario{
+    color:#444;
+    background-color: #444;
+}
 
 a:link,
 a:visited {

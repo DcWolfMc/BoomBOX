@@ -51,20 +51,3 @@ function PlaylistsDetails() {
 }
 
 export default PlaylistsDetails;
-
-
-/*
-<div class="card mb-3" style="max-width: 540px;">
-  <div class="row g-0">
-    <div class="col-md-4">
-      <img src={playlist.capa} width="20%" height="30%" />
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-      <h1 className="bordaA3">{playlist.nome}</h1>
-      <h2 className="bordaA3">{playlist.artista}</h2>
-      </div>
-    </div>
-  </div>
-</div>
-*/
