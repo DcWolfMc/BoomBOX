@@ -1,25 +1,41 @@
+import axios from "axios";
 import { useState } from "react";
-import usuario from "../../assets/js/dadosCadastro";
+//import usuario from "../../assets/js/dadosCadastro";
 
 const Cadastro = () =>{
 
+const[usuario, setUsuario] = useState([]);
 const [email , setEmail] = useState('');
 const [password , setPassword] = useState('');
 const [sex , setSex] = useState('');
 const [name , setName] = useState('');
 const [emailconfirm , setEmailconfirm] = useState('');
 const [error , setError] = useState({emaild: ''});
- 
+const db = `http://localhost:3001/usuarios/`
   function handleSubmit(e){
     e.preventDefault();
     if(email == emailconfirm){
-      usuario.push({
+      axios.post(db, {
+        email: email,
+        password: password,
+        sex: sex,
+        nome: name,
+        playlists:[{
+          
+        }]
+      }).then((response)=>{setUsuario(response.data)})
+      /*usuario.push({
         email: email,
         password: password,
         sex: sex,
         nome: name
-      });
-      console.log(usuario);
+      });*/
+      console.log(usuario); // log esta atrasado em 1 submit
+      setEmail("");
+      setPassword("");
+      setName("");
+      setEmailconfirm("");
+      setSex("");
     }else{
       setError({emaild:'Os e-mails não conferem'})
     }

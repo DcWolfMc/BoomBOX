@@ -3,7 +3,7 @@ import { useState, } from "react";
 import axios from "axios";
 import { useHistory } from "react-router";
 
-const Login = () => {
+const Login = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [usuario, setUsuario] = useState([]);
@@ -17,26 +17,22 @@ const Login = () => {
     e.preventDefault();
     const db = `http://localhost:3001/usuarios/?email=${email}`  
     axios.get(db).then((response) => {
-        setUsuario(response.data[0])
+        const u = response.data[0];
+        setUsuario(u)
         if(email == null || !email || email == undefined){
             setError({ emailVazio: "email Vazia" });
             return
-        }else{
-            setError({ emailVazio:""});
-        }
-        if(password == null || !password || password == undefined){
+        }else if(password == null || !password || password == undefined){
           setError({ passwordVazia: "Senha Vazia" });
           return
-        }else{
-          setError({ passwordVazia:""});
-        }
-        if(usuario == undefined ||usuario.password !== password){
+        }else if(u == undefined || u.password !== password){
             setError({ dadosInvalidos: "Dados Invalidos" });
-            console.log(usuario);
+            console.log(u);
             return
         }else{
-            localStorage.setItem("usuarioLogado", JSON.stringify(usuario));
-            console.log(usuario);
+            localStorage.setItem("usuarioLogado", JSON.stringify(u));
+            console.log(u);
+            props.update()
             history.push("/");
         }
     }    

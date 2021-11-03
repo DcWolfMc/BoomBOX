@@ -1,23 +1,22 @@
 import logo from '../../assets/img/Spotify-Logo.jpg';
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import Login_logout from '../Header/Login_Logout';
 const Header = (props) => {
     const deslogar = ()=>{
         localStorage.removeItem("usuarioLogado");
-        {props.setIsOnline(false)};
+        props.update();
     }
     // usuário logado
     
-    let login_logout = () =>{
+    const login_logout = () =>{
         console.log("Identificando função")
-        if(props.isOnline == true){
+        if(props.usuarioLogado){
             console.log("IsOnline é verdadeiro")
-            console.log("usuário logado:" + props.usuarioLogado.nome)
+            console.log("usuário logado: " + props.usuarioLogado.nome)
             return(
             <>
             <li className="unitlist" ><Link to="/Perfil" className="bordaA3">{props.usuarioLogado.nome}</Link></li>
-            <li className="unitlist"><Link onClick={deslogar} className="bordaA3">Logout</Link></li>
+            <li className="unitlist"><Link to="#" onClick={deslogar} className="bordaA3">Logout</Link></li>
             </>)
         }else{
             console.log("IsOnline é falso")

@@ -12,21 +12,26 @@ import {BrowserRouter as Router, Switch ,Route} from "react-router-dom";
 
 
   function App() {
+   const update = () => {
+      setUsuarioLogado(JSON.parse(localStorage.getItem("usuarioLogado")));
+      console.log("upload chamado")
+   }
+   const [usuarioLogado, setUsuarioLogado] = useState(null);
 
-   const [isOnline, setIsOnline] = useState(false);
-   const [usuarioLogado, setUsuarioLogado] = useState(JSON.parse(localStorage.getItem("usuarioLogado")));
-
-useEffect(() => {
+/*useEffect(() => {
+   console.log("chamada do UseEfect");
    if(usuarioLogado != null || usuarioLogado != undefined){
       setIsOnline(true)
+      console.log("setIsOnline = true");
    }else{
       setIsOnline(false)
+      console.log("setIsOnline = false");
    }
-})
+})*/
 
   return (
    <Router>
-   <Header isOnline={isOnline} setIsOnline={setIsOnline} usuarioLogado={usuarioLogado} setUsuarioLogado={setUsuarioLogado}/>
+   <Header update={update} usuarioLogado={usuarioLogado} setUsuarioLogado={setUsuarioLogado}/>
 
    <Switch>
   
@@ -43,11 +48,11 @@ useEffect(() => {
       </Route>
 
       <Route path="/Login">
-         <Login/>
+         <Login update={update}/>
       </Route>
 
       <Route path="/Perfil">
-         <Perfil isOnline={isOnline} setIsOnline={setIsOnline} usuarioLogado={usuarioLogado} setUsuarioLogado={setUsuarioLogado}/>
+         <Perfil usuarioLogado={usuarioLogado} setUsuarioLogado={setUsuarioLogado}/>
       </Route>
 
       <Route path="/Cadastro">

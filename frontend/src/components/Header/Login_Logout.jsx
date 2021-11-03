@@ -1,4 +1,4 @@
-/*import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 function Login_logout(props){
     console.log("Identificando função")
@@ -23,4 +23,4 @@ function Login_logout(props){
     }
 }
 
-export default Login_logout;*/
+export default Login_logout;
