@@ -126,30 +126,13 @@
   ],
   "usuarios": [
     {
-      "id": 0,
-      "email": "danielmcolares@edu.unifor.br",
-      "password": "123456789",
+      "nome": "Daniel",
+      "password": "",
+      "email": "",
       "sex": "Male",
-      "nome": "Daniel Mendonça Colares",
+      "id": 0,
       "playlists": [
-        {
-          "id": 0,
-          "nome": "MyPlaylist",
-          "capa": "../img/Rock.jpg",
-          "artista": "Daniel",
-          "musicas": [
-            {
-              "id": 1,
-              "nome": "BACKSTREET BOYS - I WANT IT THAT WAY",
-              "endereco": "../Musicas/01.mp3"
-            },
-            {
-              "id": 2,
-              "nome": "BTS - PERMISSION TO DANCE",
-              "endereco": "../Musicas/02.mp3"
-            }
-          ]
-        }
+        {}
       ]
     },
     {
@@ -157,14 +140,40 @@
       "email": "@edu.unifor.br",
       "password": "123456789",
       "sex": "Male",
-      "nome": "Fabio"
+      "nome": "Fabio",
+      "playlists": [
+        {}
+      ]
     },
     {
       "id": 2,
       "email": "@edu.unifor.br",
       "password": "123456789",
       "sex": "Male",
-      "nome": "Diego"
+      "nome": "Diego",
+      "playlists": [
+        {}
+      ]
+    },
+    {
+      "email": "D@1.com",
+      "password": "123",
+      "sex": "Male",
+      "nome": "Daniel",
+      "playlists": [
+        {}
+      ],
+      "id": 5
+    },
+    {
+      "email": "R@1.com",
+      "password": "123",
+      "sex": "Male",
+      "nome": "Rafa",
+      "playlists": [
+        {}
+      ],
+      "id": 6
     }
   ]
 }

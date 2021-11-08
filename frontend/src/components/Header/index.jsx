@@ -1,6 +1,5 @@
 import logo from '../../assets/img/Spotify-Logo.jpg';
 import { Link } from 'react-router-dom';
-import { useEffect, useState } from 'react';
 const Header = (props) => {
     const deslogar = ()=>{
         localStorage.removeItem("usuarioLogado");
@@ -16,7 +15,7 @@ const Header = (props) => {
             return(
             <>
             <li className="unitlist" ><Link to="/Perfil" className="bordaA3">{props.usuarioLogado.nome}</Link></li>
-            <li className="unitlist"><Link to="#" onClick={deslogar} className="bordaA3">Logout</Link></li>
+            <li className="unitlist"><Link to="/" onClick={deslogar} className="bordaA3">Logout</Link></li>
             </>)
         }else{
             console.log("IsOnline é falso")
@@ -43,7 +42,6 @@ const Header = (props) => {
                         <li role="separator" className="separator" ></li>
                         <li className="unitlist" ><Link to="/Playlists" className="bordaA3">Free Playlists</Link></li>
                         {login_logout()}
-                        <li className="unitlist" >  </li>
                     </ul>
                 </nav>
             </div>

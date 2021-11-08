@@ -51,7 +51,7 @@ const Login = (props) => {
         </div>
         <div className="mb-3">
           <label for="password" className="form-label fonte">Password</label>
-          <input type="password" className="form-control fonte" placeholder="Create your password"id="Password"
+          <input type="password" className="form-control fonte" placeholder="password"id="Password"
           value={password} onChange={(e) => setPassword(e.target.value)}/>
         {error.passwordVazia && (<div className="alert alert-danger" role="alert">{error.passwordVazia}</div>)}
         </div>

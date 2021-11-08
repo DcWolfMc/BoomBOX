@@ -48,11 +48,11 @@ import {BrowserRouter as Router, Switch ,Route} from "react-router-dom";
       </Route>
 
       <Route path="/Login">
-         <Login update={update}/>
+         <Login update={update} usuarioLogado={usuarioLogado} setUsuarioLogado={setUsuarioLogado}/>
       </Route>
 
       <Route path="/Perfil">
-         <Perfil usuarioLogado={usuarioLogado} setUsuarioLogado={setUsuarioLogado}/>
+         <Perfil update={update} usuarioLogado={usuarioLogado} setUsuarioLogado={setUsuarioLogado}/>
       </Route>
 
       <Route path="/Cadastro">

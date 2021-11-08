@@ -36,6 +36,7 @@ const db = `http://localhost:3001/usuarios/`
       setName("");
       setEmailconfirm("");
       setSex("");
+      setError({emaild:"Cadastro realizado com sucesso."})
     }else{
       setError({emaild:'Os e-mails não conferem'})
     }

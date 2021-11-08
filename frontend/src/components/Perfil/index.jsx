@@ -1,25 +1,44 @@
 import { useState } from "react";
-import usuario from "../../assets/js/dadosCadastro";
-
+//import usuario from "../../assets/js/dadosCadastro";
+import axios from "axios";
+import { useHistory } from "react-router";
 const Perfil = (props) =>{
 const id = props.usuarioLogado.id;
+console.log(id)
+const [perfilUpdate, setPerfilUpdate] = useState(props.usuarioLogado)
+console.log(perfilUpdate);
+console.log(perfilUpdate.nome)
 const [email , setEmail] = useState('')
 const [password , setPassword] = useState('');
 const [name , setName] = useState('');
- 
+const history = useHistory()
+
   function handleSubmit(e){
     e.preventDefault();
-    const db = `http://localhost:3001/usuarios/?id=${id}`
-    axios.put(db).then((response) => {
-        usuario.push({
-        email: email,
-        password: password,
-        nome: name
+    const db = `http://localhost:3001/usuarios/${id}`
+    if(name != perfilUpdate.nome){
+      perfilUpdate.nome = name
+      console.log(perfilUpdate.nome)
+    }
+    if(email != perfilUpdate.email){
+      perfilUpdate.email = email
+      console.log(perfilUpdate.email)
+    }
+    if(password != perfilUpdate.password){
+      perfilUpdate.password = password
+      console.log(perfilUpdate.password)
+    }
+    axios.put(db,perfilUpdate)
+      .then((response) => {
+        setPerfilUpdate(response.data);
+        console.log("PUT Response.data: ")
+        console.log(response.data)
       });
-      console.log("Passou");
+      localStorage.setItem("usuarioLogado", JSON.stringify(perfilUpdate));
+      console.log("passou");
+      props.update();
+      history.push("/");
     }    
-    );
-  }
 
     return(
     <div className="container fonte" className="estilofaq">
