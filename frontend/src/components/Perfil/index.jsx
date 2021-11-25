@@ -16,15 +16,15 @@ const history = useHistory()
   function handleSubmit(e){
     e.preventDefault();
     const db = `http://localhost:3001/usuarios/${id}`
-    if(name != perfilUpdate.nome){
+    if(name != perfilUpdate.nome != null != ""){
       perfilUpdate.nome = name
       console.log(perfilUpdate.nome)
     }
-    if(email != perfilUpdate.email){
+    if(email != perfilUpdate.email != null != ""){
       perfilUpdate.email = email
       console.log(perfilUpdate.email)
     }
-    if(password != perfilUpdate.password){
+    if(password != perfilUpdate.password != null != ""){
       perfilUpdate.password = password
       console.log(perfilUpdate.password)
     }
